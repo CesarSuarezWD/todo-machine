@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #162c4a;
+  /* background: #F2F4F5; */
+  color: #1E1E1F;
+  font-family: 'arial';
+}
+
+#root {
+  margin: 0 24px;
+  position: relative;
+  min-height: 100vh;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    padding: 0 224px;
+  }
+}
