@@ -7,6 +7,8 @@ function useLocalStorage (itemName, initialValue){
     const [loading, setLoading] = React.useState(true);
   
     const [item, setItem] = React.useState(initialValue); // Pertenece a  search
+
+    const [sincronizedItem, setSincronizedItem] = React.useState(true);
   
     React.useEffect(() => {
       setTimeout(() => {
@@ -26,11 +28,12 @@ function useLocalStorage (itemName, initialValue){
   
           setItem(parsedItem);
           setLoading(false);
+          setSincronizedItem(true);
         } catch (error) {
           setError(error);
         }
-      }, 1000)
-    }, []);
+      }, 2000)
+    }, [sincronizedItem]);
   
   
     //------------Función de transición para complete y delete---------------
@@ -44,12 +47,19 @@ function useLocalStorage (itemName, initialValue){
         setError(error);
       }
     };
+
+    const sincronizeItem = () => {
+
+        setLoading(true);
+        setSincronizedItem(false);
+    };
   
     return{ // Por convención de React, cuando se tienen mas de dos estados, se cambia el array [], por un objeto {}. Inicialmente tenia item y saveItem, y se le agrego loading, por ende cambia la sintaxis
       item,
       saveItem,
       loading,
       error,
+      sincronizeItem,
     };
   
   }

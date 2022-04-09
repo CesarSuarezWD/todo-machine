@@ -1,14 +1,11 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import './TodoCounter.css';
 
-function TodoCounter() // va entre {} por que son las propiedades que en realidad son un objeto
+function TodoCounter({totalTodos, completedTodos, loading}) // va entre {} por que son las propiedades que en realidad son un objeto
 {
-    const {totalTodos, completedTodos} = React.useContext(TodoContext);
-
     return(
 
-        <h2 className = "TodoCounter">Has completado {completedTodos} de {totalTodos} TODO's</h2>
+        <h2 className = {`TodoCounter ${!!loading && "TodoCounter--loading"}`}>Has completado {completedTodos} de {totalTodos} TODO's</h2>
     );
 }
 

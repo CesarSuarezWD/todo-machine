@@ -1,6 +1,7 @@
-.pInformativoError, .pInformativoLoading, .pInformativo
+.pInformativoError, .pInformativoLoading, .pInformativo, .pInformativoResults
 {
     text-align: center;
     color: #61dafa;
     font-weight: bold;
+    font-size: 20px;
 }
